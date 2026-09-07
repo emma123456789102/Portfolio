@@ -76,4 +76,7 @@ $(document).ready(function(){
     $('.redirectbtn1').click(function() {
         location.href = 'Web-gallery/main.html'; // link to the web gallery page
     });
+    $('.Home').click(function() {
+        location.href = 'Portfolio/index.html'; // link to the home page
+    });
 });
