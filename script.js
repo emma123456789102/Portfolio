@@ -69,5 +69,11 @@ $(document).ready(function(){
             }
         }
     });
-    // 
+    // button click event to redirect to another page
+    $('.redirectbtn').click(function() {
+        location.href = 'creative/main.html'; // link to the creative individual page
+    });
+    $('.redirectbtn1').click(function() {
+        location.href = 'Web-gallery/main.html'; // link to the web gallery page
+    });
 });
