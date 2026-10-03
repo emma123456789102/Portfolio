@@ -1,1 +1,1537 @@
+<!-- ======================================================= ======================================================= =======================================================
+Colleena Shakti
+Odissi Foundations - Course Interface Template
+---------------------------------------------------------------------------------
+Purpose:
+Visual prototype/ Template for the <!-- <https:www.colleenashakti.com>-->
 
+     Reusable Squarespace template for individual online courses.
+     
+     REPLACE THE {{ PLACEHOLDERS }} WITH EACH COURSE'S CONTENT.
+     
+     Example:
+     {{ COURSE_TITLE }}        → Odissi Foundations
+     {{ COURSE_PRICE }}        → £30
+     {{ COURSE_TYPE }}         → ODISSI
+     {{ HERO_IMAGE_URL }}      → Squarespace image URL
+     
+     Squarespace handles:
+     - Customer accounts
+     - Checkout/payment
+     - Pricing Plan
+     - Protected Course Page
+     - Lesson access
+Important:
+     - Squarespace Course Page handles protected access.
+     - Squarespace Pricing Plan handles payment entitlement.
+     - Squarespace/customer accounts handle authentication.
+     - Vimeo lesson videos should be added to protected lessons.
+     - This template does NOT attempt to replace authentication
+       or payment/access control with JavaScript.
+
+-----------------------------------------------------------------------------------
+========================================================= ======================================================= -->
+
+
+
+<div class="course-sales-template">
+
+
+  <!-- ======================================================
+       01 — HERO
+  ======================================================= -->
+
+  <section class="course-hero">
+
+
+    <!-- COURSE IMAGE -->
+
+    <div class="course-hero-image">
+
+      <img
+        src="{{ HERO_IMAGE_URL }}"
+        alt="{{ COURSE_TITLE }}"
+      >
+
+    </div>
+
+
+
+    <!-- COURSE INFORMATION -->
+
+    <div class="course-hero-content">
+
+
+      <span class="course-eyebrow">
+
+        ONLINE COURSE · {{ COURSE_TYPE }}
+
+      </span>
+
+
+      <h1>
+
+        {{ COURSE_TITLE_LINE_1 }}<br>
+        {{ COURSE_TITLE_LINE_2 }}
+
+      </h1>
+
+
+      <p class="course-intro">
+
+        {{ COURSE_INTRODUCTION }}
+
+      </p>
+
+
+
+      <!-- PRICE / ACCESS -->
+
+      <div class="course-meta">
+
+
+        <span class="course-price">
+
+          {{ COURSE_PRICE }}
+
+        </span>
+
+
+        <span class="course-access">
+
+          {{ ACCESS_TYPE }}
+
+        </span>
+
+
+      </div>
+
+
+
+      <!--
+      ========================================================
+      PURCHASE / ENROLMENT
+
+      Place the appropriate Squarespace Pricing Plan / enrolment
+      mechanism beneath or alongside this template.
+
+      Do NOT implement paid-access checking in front-end JS.
+      Squarespace should control account entitlement.
+      ========================================================
+      -->
+
+
+      <p class="course-small">
+
+        {{ PAYMENT_DESCRIPTION }}
+
+      </p>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ======================================================
+       02 — ABOUT THE COURSE
+  ======================================================= -->
+
+  <section class="course-about">
+
+
+    <div class="course-label">
+
+      THE COURSE
+
+    </div>
+
+
+
+    <div class="course-about-grid">
+
+
+      <!-- LARGE EDITORIAL HEADING -->
+
+      <h2>
+
+        {{ ABOUT_HEADING_LINE_1 }}<br>
+        {{ ABOUT_HEADING_LINE_2 }}
+
+      </h2>
+
+
+
+      <!-- COURSE DESCRIPTION -->
+
+      <div class="course-copy">
+
+
+        <p>
+
+          {{ ABOUT_PARAGRAPH_1 }}
+
+        </p>
+
+
+        <p>
+
+          {{ ABOUT_PARAGRAPH_2 }}
+
+        </p>
+
+
+        <p>
+
+          {{ ABOUT_PARAGRAPH_3 }}
+
+        </p>
+
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ======================================================
+       OPTIONAL CONTENT SECTION
+
+       Additional sections can be inserted here for:
+       
+       - What's included
+       - Curriculum
+       - Teacher information
+       - Testimonials
+       - Course requirements
+       - FAQs
+       - Pricing CTA
+       
+  ======================================================= -->
+
+
+</div>
+
+
+
+
+
+<style>
+
+/* ==========================================================
+   COLLEENA SHAKTI
+   REUSABLE COURSE SALES TEMPLATE
+
+   DESIGN SYSTEM
+========================================================== */
+
+
+.course-sales-template {
+
+  /* PRIMARY BRAND COLOURS */
+
+  --burgundy: #3b1718;
+
+  --deep-red: #521f20;
+
+  --wine: #6a2928;
+
+  --terracotta: #8a4938;
+
+
+  /* ACCENT COLOURS */
+
+  --gold: #b89a62;
+
+  --ivory: #f2eadf;
+
+  --muted: #c5b6a7;
+
+
+  /* SUPPORTING COLOURS */
+
+  --dark: #2b1112;
+
+  --line:
+    rgba(184,154,98,.30);
+
+
+  /* PAGE STRUCTURE */
+
+  width: 100%;
+
+  overflow: hidden;
+
+
+  /* BASE APPEARANCE */
+
+  background:
+    var(--burgundy);
+
+  color:
+    var(--ivory);
+
+  font-family:
+    inherit;
+
+}
+
+
+
+
+
+/* ==========================================================
+   01 — HERO
+========================================================== */
+
+
+.course-hero {
+
+  display:
+    grid;
+
+
+  grid-template-columns:
+
+    minmax(0, 1.15fr)
+
+    minmax(0, .85fr);
+
+
+  min-height:
+    720px;
+
+
+  background:
+    var(--burgundy);
+
+}
+
+
+
+
+
+/* ==========================================================
+   HERO IMAGE
+========================================================== */
+
+
+.course-hero-image {
+
+  min-height:
+    720px;
+
+  overflow:
+    hidden;
+
+}
+
+
+
+.course-hero-image img {
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+
+  display:
+    block;
+
+
+  object-fit:
+    cover;
+
+
+  object-position:
+    center;
+
+
+  transition:
+    transform
+    .9s
+    cubic-bezier(.2,.6,.3,1);
+
+}
+
+
+
+/* Subtle editorial image movement */
+
+.course-hero:hover
+.course-hero-image img {
+
+  transform:
+    scale(1.015);
+
+}
+
+
+
+
+
+/* ==========================================================
+   HERO CONTENT
+========================================================== */
+
+
+.course-hero-content {
+
+  display:
+    flex;
+
+
+  flex-direction:
+    column;
+
+
+  justify-content:
+    center;
+
+
+  align-items:
+    flex-start;
+
+
+  padding:
+    8vw 6vw;
+
+}
+
+
+
+
+
+/* ==========================================================
+   COURSE TYPE / EYEBROW
+========================================================== */
+
+
+.course-eyebrow {
+
+  display:
+    block;
+
+
+  color:
+    var(--gold);
+
+
+  font-size:
+    10px;
+
+
+  letter-spacing:
+    3px;
+
+
+  text-transform:
+    uppercase;
+
+
+  margin-bottom:
+    25px;
+
+}
+
+
+
+
+
+/* ==========================================================
+   COURSE TITLE
+========================================================== */
+
+
+.course-hero h1 {
+
+  color:
+    var(--ivory);
+
+
+  font-size:
+    clamp(
+      52px,
+      6vw,
+      90px
+    );
+
+
+  font-weight:
+    400;
+
+
+  line-height:
+    .94;
+
+
+  letter-spacing:
+    -2px;
+
+
+  margin:
+    0 0 35px;
+
+}
+
+
+
+
+
+/* ==========================================================
+   COURSE INTRODUCTION
+========================================================== */
+
+
+.course-intro {
+
+  max-width:
+    500px;
+
+
+  color:
+    var(--muted);
+
+
+  font-size:
+    16px;
+
+
+  line-height:
+    1.8;
+
+
+  margin:
+    0 0 35px;
+
+}
+
+
+
+
+
+/* ==========================================================
+   PRICE + ACCESS
+========================================================== */
+
+
+.course-meta {
+
+  display:
+    flex;
+
+
+  align-items:
+    center;
+
+
+  gap:
+    25px;
+
+
+  margin-bottom:
+    30px;
+
+}
+
+
+
+.course-price {
+
+  color:
+    var(--ivory);
+
+
+  font-size:
+    34px;
+
+
+  line-height:
+    1;
+
+}
+
+
+
+.course-access {
+
+  color:
+    var(--gold);
+
+
+  font-size:
+    9px;
+
+
+  letter-spacing:
+    2px;
+
+
+  text-transform:
+    uppercase;
+
+}
+
+
+
+
+
+/* ==========================================================
+   BUTTON SYSTEM
+
+   Can be used later with a Squarespace enrolment /
+   pricing-plan CTA.
+========================================================== */
+
+
+.course-button {
+
+  display:
+    inline-flex;
+
+
+  align-items:
+    center;
+
+
+  justify-content:
+    center;
+
+
+  min-width:
+    190px;
+
+
+  padding:
+    18px 30px;
+
+
+  border:
+    1px solid
+    var(--gold);
+
+
+  background:
+    transparent;
+
+
+  color:
+    var(--ivory)
+    !important;
+
+
+  text-decoration:
+    none
+    !important;
+
+
+  font-size:
+    10px;
+
+
+  letter-spacing:
+    2.5px;
+
+
+  text-transform:
+    uppercase;
+
+
+  transition:
+
+    background
+    .3s ease,
+
+    color
+    .3s ease,
+
+    transform
+    .3s ease;
+
+}
+
+
+
+.course-button:hover {
+
+  background:
+    var(--gold);
+
+
+  color:
+    var(--burgundy)
+    !important;
+
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+
+.course-button.gold {
+
+  background:
+    var(--gold);
+
+
+  color:
+    var(--burgundy)
+    !important;
+
+}
+
+
+
+.course-button.gold:hover {
+
+  background:
+    var(--ivory);
+
+
+  border-color:
+    var(--ivory);
+
+}
+
+
+
+
+
+/* ==========================================================
+   SMALL PAYMENT / ACCESS TEXT
+========================================================== */
+
+
+.course-small {
+
+  margin:
+    17px 0 0;
+
+
+  color:
+    var(--muted);
+
+
+  font-size:
+    10px;
+
+
+  letter-spacing:
+    1px;
+
+}
+
+
+
+
+
+/* ==========================================================
+   02 — ABOUT
+========================================================== */
+
+
+.course-about {
+
+  padding:
+    120px 8%;
+
+
+  background:
+    var(--deep-red);
+
+}
+
+
+
+
+
+/* ==========================================================
+   SECTION LABEL
+========================================================== */
+
+
+.course-label {
+
+  margin-bottom:
+    50px;
+
+
+  color:
+    var(--gold);
+
+
+  font-size:
+    10px;
+
+
+  letter-spacing:
+    3px;
+
+
+  text-transform:
+    uppercase;
+
+}
+
+
+
+
+
+/* ==========================================================
+   ABOUT GRID
+========================================================== */
+
+
+.course-about-grid {
+
+  display:
+    grid;
+
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+
+  gap:
+    10%;
+
+}
+
+
+
+
+
+/* ==========================================================
+   ABOUT HEADING
+========================================================== */
+
+
+.course-about-grid h2 {
+
+  margin:
+    0;
+
+
+  color:
+    var(--ivory);
+
+
+  font-size:
+    clamp(
+      42px,
+      5vw,
+      70px
+    );
+
+
+  font-weight:
+    400;
+
+
+  line-height:
+    1.02;
+
+}
+
+
+
+
+
+/* ==========================================================
+   ABOUT COPY
+========================================================== */
+
+
+.course-copy {
+
+  max-width:
+    560px;
+
+}
+
+
+
+.course-copy p {
+
+  margin:
+    0 0 24px;
+
+
+  color:
+    var(--muted);
+
+
+  font-size:
+    15px;
+
+
+  line-height:
+    1.9;
+
+}
+
+
+
+
+
+/* ==========================================================
+   OPTIONAL — INCLUDED SECTION
+========================================================== */
+
+
+.course-included {
+
+  padding:
+    110px 8%;
+
+
+  background:
+    var(--dark);
+
+}
+
+
+
+.course-included-grid {
+
+  display:
+    grid;
+
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+
+  gap:
+    7%;
+
+}
+
+
+
+.course-feature {
+
+  padding-top:
+    25px;
+
+
+  border-top:
+    1px solid
+    var(--line);
+
+}
+
+
+
+.course-feature > span {
+
+  color:
+    var(--gold);
+
+
+  font-size:
+    10px;
+
+
+  letter-spacing:
+    2px;
+
+}
+
+
+
+.course-feature h3 {
+
+  margin:
+    22px 0 14px;
+
+
+  color:
+    var(--ivory);
+
+
+  font-size:
+    24px;
+
+
+  font-weight:
+    400;
+
+}
+
+
+
+.course-feature p {
+
+  margin:
+    0;
+
+
+  color:
+    var(--muted);
+
+
+  font-size:
+    14px;
+
+
+  line-height:
+    1.75;
+
+}
+
+
+
+
+
+/* ==========================================================
+   OPTIONAL — CURRICULUM
+========================================================== */
+
+
+.course-curriculum {
+
+  padding:
+    120px 8%;
+
+
+  background:
+    var(--burgundy);
+
+}
+
+
+
+.course-curriculum-heading {
+
+  display:
+    flex;
+
+
+  justify-content:
+    space-between;
+
+
+  align-items:
+    flex-end;
+
+
+  gap:
+    30px;
+
+
+  margin-bottom:
+    60px;
+
+}
+
+
+
+.course-curriculum-heading h2 {
+
+  margin:
+    0;
+
+
+  color:
+    var(--ivory);
+
+
+  font-size:
+    clamp(
+      42px,
+      5vw,
+      68px
+    );
+
+
+  font-weight:
+    400;
+
+
+  line-height:
+    1;
+
+}
+
+
+
+.course-curriculum-heading p {
+
+  margin:
+    0;
+
+
+  color:
+    var(--muted);
+
+
+  font-size:
+    13px;
+
+}
+
+
+
+
+
+/* ==========================================================
+   CURRICULUM LESSON ROW
+========================================================== */
+
+
+.course-lesson {
+
+  display:
+    grid;
+
+
+  grid-template-columns:
+    75px
+    1fr
+    auto;
+
+
+  align-items:
+    center;
+
+
+  gap:
+    20px;
+
+
+  padding:
+    27px 0;
+
+
+  border-top:
+    1px solid
+    var(--line);
+
+
+  transition:
+
+    padding-left
+    .25s ease,
+
+    background
+    .25s ease;
+
+}
+
+
+
+.course-lesson:last-child {
+
+  border-bottom:
+    1px solid
+    var(--line);
+
+}
+
+
+
+.course-lesson:hover {
+
+  padding-left:
+    12px;
+
+}
+
+
+
+.course-number {
+
+  color:
+    var(--gold);
+
+
+  font-size:
+    11px;
+
+
+  letter-spacing:
+    1px;
+
+}
+
+
+
+.course-lesson-info > span {
+
+  display:
+    block;
+
+
+  margin-bottom:
+    6px;
+
+
+  color:
+    var(--gold);
+
+
+  font-size:
+    8px;
+
+
+  letter-spacing:
+    2.5px;
+
+
+  text-transform:
+    uppercase;
+
+}
+
+
+
+.course-lesson-info h3 {
+
+  margin:
+    0;
+
+
+  color:
+    var(--ivory);
+
+
+  font-size:
+    19px;
+
+
+  font-weight:
+    400;
+
+
+  line-height:
+    1.35;
+
+}
+
+
+
+.course-video-label {
+
+  color:
+    var(--muted);
+
+
+  font-size:
+    8px;
+
+
+  letter-spacing:
+    2px;
+
+}
+
+
+
+
+
+/* ==========================================================
+   OPTIONAL — FINAL PURCHASE CTA
+========================================================== */
+
+
+.course-purchase {
+
+  padding:
+    130px 25px;
+
+
+  background:
+    var(--wine);
+
+
+  text-align:
+    center;
+
+}
+
+
+
+.course-purchase h2 {
+
+  margin:
+    0 0 18px;
+
+
+  color:
+    var(--ivory);
+
+
+  font-size:
+    clamp(
+      46px,
+      6vw,
+      78px
+    );
+
+
+  font-weight:
+    400;
+
+
+  line-height:
+    1;
+
+}
+
+
+
+.course-purchase-copy {
+
+  max-width:
+    480px;
+
+
+  margin:
+    0 auto;
+
+
+  color:
+    var(--muted);
+
+
+  font-size:
+    15px;
+
+
+  line-height:
+    1.8;
+
+}
+
+
+
+.course-final-price {
+
+  margin:
+    35px 0 30px;
+
+
+  color:
+    var(--ivory);
+
+
+  font-size:
+    38px;
+
+}
+
+
+
+
+
+/* ==========================================================
+   SQUARESPACE ENROLMENT ANCHOR
+========================================================== */
+
+
+#course-enrol {
+
+  scroll-margin-top:
+    100px;
+
+}
+
+
+
+
+
+/* ==========================================================
+   TABLET / MOBILE
+========================================================== */
+
+
+@media (max-width: 750px) {
+
+
+  /* HERO */
+
+
+  .course-hero {
+
+    grid-template-columns:
+      1fr;
+
+
+    min-height:
+      auto;
+
+  }
+
+
+
+  .course-hero-image {
+
+    min-height:
+      520px;
+
+
+    height:
+      65vh;
+
+  }
+
+
+
+  .course-hero-content {
+
+    padding:
+      65px 7% 75px;
+
+  }
+
+
+
+  .course-hero h1 {
+
+    font-size:
+      clamp(
+        52px,
+        15vw,
+        72px
+      );
+
+  }
+
+
+
+  /* ABOUT */
+
+
+  .course-about {
+
+    padding:
+      85px 7%;
+
+  }
+
+
+
+  .course-about-grid {
+
+    grid-template-columns:
+      1fr;
+
+
+    gap:
+      45px;
+
+  }
+
+
+
+  /* INCLUDED */
+
+
+  .course-included {
+
+    padding:
+      85px 7%;
+
+  }
+
+
+
+  .course-included-grid {
+
+    grid-template-columns:
+      1fr;
+
+
+    gap:
+      50px;
+
+  }
+
+
+
+  /* CURRICULUM */
+
+
+  .course-curriculum {
+
+    padding:
+      85px 7%;
+
+  }
+
+
+
+  .course-curriculum-heading {
+
+    display:
+      block;
+
+  }
+
+
+
+  .course-curriculum-heading p {
+
+    margin-top:
+      15px;
+
+  }
+
+
+
+  .course-lesson {
+
+    grid-template-columns:
+      42px
+      1fr;
+
+
+    gap:
+      12px;
+
+  }
+
+
+
+  .course-video-label {
+
+    display:
+      none;
+
+  }
+
+
+
+  .course-lesson:hover {
+
+    padding-left:
+      0;
+
+  }
+
+
+
+  /* PURCHASE */
+
+
+  .course-purchase {
+
+    padding:
+      90px 7%;
+
+  }
+
+
+}
+
+</style>
