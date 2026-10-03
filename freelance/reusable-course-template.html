@@ -1,0 +1,96 @@
+<!--
+COLLEENA SHAKTI — REUSABLE COURSE/LIBRARY TEMPLATE
+Presentation-layer starter template.
+Production payment/access remains handled by Squarespace Digital Products,
+Pricing Plans and protected Course Pages.
+-->
+<div class="cs-course-platform">
+  <section class="cs-editorial-row" data-layout="media-left">
+    <div class="cs-editorial-row__media">
+      <img src="{{ IMAGE_URL }}" alt="{{ IMAGE_ALT }}" loading="lazy">
+    </div>
+    <div class="cs-editorial-row__content">
+      <span class="cs-eyebrow">{{ SECTION_LABEL }}</span>
+      <h2 class="cs-heading">{{ SECTION_TITLE }}</h2>
+      <div class="cs-body">{{ SECTION_CONTENT }}</div>
+    </div>
+  </section>
+
+  <section class="cs-collection" data-course-category="{{ CATEGORY_ID }}">
+    <header class="cs-collection__header">
+      <div>
+        <h2>{{ CATEGORY_NAME }}</h2>
+        <span>{{ CATEGORY_DESCRIPTION }}</span>
+      </div>
+      <nav class="cs-carousel-controls" aria-label="{{ CATEGORY_NAME }} navigation">
+        <button type="button" data-carousel-direction="previous" aria-label="Previous courses">←</button>
+        <button type="button" data-carousel-direction="next" aria-label="Next courses">→</button>
+      </nav>
+    </header>
+
+    <div class="cs-carousel" data-carousel>
+      <article class="cs-course-card" data-course-id="{{ COURSE_ID }}">
+        <a href="{{ COURSE_SALES_PAGE }}" class="cs-course-card__link">
+          <figure class="cs-course-card__media">
+            <img src="{{ COURSE_IMAGE }}" alt="{{ COURSE_IMAGE_ALT }}" loading="lazy">
+            <span class="cs-course-card__index">{{ COURSE_NUMBER }}</span>
+          </figure>
+          <div class="cs-course-card__content">
+            <h3>{{ COURSE_TITLE }}</h3>
+            <span class="cs-course-card__cta">Begin Practice →</span>
+          </div>
+        </a>
+      </article>
+    </div>
+  </section>
+</div>
+
+<style>
+.cs-course-platform {
+  --cs-burgundy:#3b1718; --cs-deep-red:#521f20; --cs-wine:#6a2928;
+  --cs-terracotta:#8a4938; --cs-gold:#b89a62; --cs-ivory:#f2eadf;
+  --cs-muted:#c5b6a7; --cs-border:rgba(184,154,98,.30);
+  width:100%; overflow:hidden; background:var(--cs-burgundy); color:var(--cs-ivory);
+}
+.cs-editorial-row { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr); min-height:620px; }
+.cs-editorial-row[data-layout="media-right"] .cs-editorial-row__media { order:2; }
+.cs-editorial-row__media { position:relative; overflow:hidden; }
+.cs-editorial-row__media img { width:100%; height:100%; display:block; object-fit:cover; }
+.cs-editorial-row__content { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:clamp(50px,7vw,110px); background:var(--cs-deep-red); }
+.cs-eyebrow { margin-bottom:1.5rem; color:var(--cs-gold); font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; }
+.cs-heading { margin:0 0 2rem; color:var(--cs-ivory); font-size:clamp(2.8rem,5vw,5rem); font-weight:400; line-height:.98; }
+.cs-collection { padding:clamp(70px,8vw,120px) 0; }
+.cs-collection__header { display:flex; justify-content:space-between; align-items:flex-end; padding:0 5% 2rem; }
+.cs-carousel { display:flex; gap:1.5rem; overflow-x:auto; padding:.5rem 5% 2rem; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; }
+.cs-carousel::-webkit-scrollbar { display:none; }
+.cs-course-card { flex:0 0 clamp(260px,29vw,390px); scroll-snap-align:start; }
+.cs-course-card__link { color:inherit; text-decoration:none; }
+.cs-course-card__media { position:relative; margin:0; aspect-ratio:4/5; overflow:hidden; }
+.cs-course-card__media img { width:100%; height:100%; display:block; object-fit:cover; transition:transform .8s cubic-bezier(.2,.6,.3,1); }
+.cs-course-card:hover .cs-course-card__media img { transform:scale(1.035); }
+.cs-course-card__content { padding-top:1.1rem; }
+.cs-course-card__cta { color:var(--cs-gold); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; }
+@media (max-width:750px) {
+  .cs-editorial-row { grid-template-columns:1fr; min-height:auto; }
+  .cs-editorial-row[data-layout="media-right"] .cs-editorial-row__media { order:initial; }
+  .cs-course-card { flex-basis:78vw; }
+}
+</style>
+
+<script>
+(() => {
+  "use strict";
+  document.querySelectorAll(".cs-collection").forEach((collection) => {
+    const track = collection.querySelector("[data-carousel]");
+    const controls = collection.querySelectorAll("[data-carousel-direction]");
+    if (!track) return;
+    controls.forEach((control) => {
+      control.addEventListener("click", () => {
+        const direction = control.dataset.carouselDirection;
+        const distance = track.clientWidth * 0.8;
+        track.scrollBy({ left: direction === "next" ? distance : -distance, behavior:"smooth" });
+      });
+    });
+  });
+})();
+</script>
